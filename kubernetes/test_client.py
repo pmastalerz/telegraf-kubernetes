@@ -33,15 +33,15 @@ class TestClient(unittest.TestCase):
     @mock.patch('requests.get')
     def test_get_stats_non_200_response_with_errors(self, mock_get):
         mock_get.return_value = self.__mock_response(
-          status=500, json_data={'errors': [
-                                {'code': 10, 'message': 'test'},
-                                {'code': 11, 'message': 'test1'}]})
+            status=500, json_data={'errors': [
+                {'code': 10, 'message': 'test'},
+                {'code': 11, 'message': 'test1'}]})
 
         client = Client("stats_url", "timeout")
         self.assertRaises(Exception,
                           client.get_stats, 1,
                           msg="Error: 10 - test, Error 11 - test1")
-    
+
     @mock.patch('requests.get')
     def test_get_stats_success(self, mock_get):
         mock_resp = self.__mock_response(status=200)
