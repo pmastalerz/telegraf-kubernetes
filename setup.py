@@ -1,5 +1,6 @@
 import setuptools
 
+
 def read_file(file_name):
     with open(file_name, 'r') as f:
         return f.read()
@@ -8,7 +9,7 @@ def read_file(file_name):
 setuptools.setup(
     name='telegraf-kubernetes',
     description='Plugin for Telegraf for gathering statistics from Kubernetes',
-    version='0.0.1',
+    version='0.1.0',
     author='Pawel Mastalerz',
     author_email='pawel@mastalerz.info',
     license='MIT',
@@ -22,4 +23,4 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=read_file('requirements.txt').splitlines(),
     scripts=['telegraf-kubernetes.py'],
-    )
+)

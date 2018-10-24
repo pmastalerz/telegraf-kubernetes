@@ -108,9 +108,21 @@ class ParserTest(unittest.TestCase):
         m.add_tag("pod", "canal-fqwlv")
         m.values = {
             'cpu_usage': '0.0110423',
-            'memory_rss': '28389376',
-            'memory_usage': '106688512',
-            'memory_working_set': '63107072'
+            'memory_rssBytes': '28389376',
+            'memory_usageBytes': '106688512',
+            'memory_workingSetBytes': '63107072',
+            'memory_pageFaults': '0',
+            'memory_majorPageFaults': '0'
+        }
+        self.expectedCollection.append(m)
+        m = Metric("kubernetes_pod_network")
+        m.add_tag("pod", "canal-fqwlv")
+        m.add_tag("interface", "cali3e3082340d7")
+        m.values = {
+            'rxBytes': '227051613',
+            'rxErrors': '0',
+            'txBytes': '181652981',
+            'txErrors': '0'
         }
         self.expectedCollection.append(m)
         m = Metric("kubernetes_pod_container")
@@ -118,9 +130,11 @@ class ParserTest(unittest.TestCase):
         m.add_tag("container", "install-cni")
         m.values = {
             'cpu_usage': '4.4756e-05',
-            'memory_rss': '180224',
-            'memory_usage': '73990144',
-            'memory_working_set': '30420992'
+            'memory_rssBytes': '180224',
+            'memory_usageBytes': '73990144',
+            'memory_workingSetBytes': '30420992',
+            'memory_pageFaults': '428434',
+            'memory_majorPageFaults': '0'
         }
         self.expectedCollection.append(m)
 
