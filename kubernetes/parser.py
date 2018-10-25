@@ -1,11 +1,10 @@
 from influx_line_protocol import Metric, MetricCollection
 
 
-class Parser(object):
+class Parser:
 
     def __nano_to_deci(self, value):
-        deci = float(value) / 1000000000
-        return deci
+        return float(value) / 1000000000
 
     def parse_stats(self, stats):
         collections = MetricCollection()

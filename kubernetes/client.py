@@ -1,7 +1,7 @@
 import requests
 
 
-class Client(object):
+class Client:
 
     def __init__(self, stats_url, timeout):
         self.stats_url = stats_url
