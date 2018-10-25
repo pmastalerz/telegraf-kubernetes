@@ -1,0 +1,3 @@
+requests>=2.19
+mock; python_version < '3.3'
+influx-line-protocol>=0.1.1
