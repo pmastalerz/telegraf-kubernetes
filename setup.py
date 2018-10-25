@@ -14,7 +14,7 @@ setuptools.setup(
     description='Plugin for Telegraf for gathering statistics from Kubernetes',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='0.1.0',
+    version='0.1.3',
     url='https://github.com/pmastalerz/telegraf-kubernetes',
     author='Pawel Mastalerz',
     author_email='pawel@mastalerz.info',
