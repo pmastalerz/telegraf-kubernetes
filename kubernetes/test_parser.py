@@ -6,6 +6,9 @@ from influx_line_protocol import MetricCollection
 
 class ParserTest(unittest.TestCase):
     stats_data = {
+        "node": {
+            "nodeName": "ip-10-0-7-222"
+        },
         "pods": [
             {
                 "podRef": {
