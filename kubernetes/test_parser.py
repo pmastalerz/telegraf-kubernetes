@@ -109,6 +109,7 @@ class ParserTest(unittest.TestCase):
         self.expectedCollection = MetricCollection()
         m = Metric("kubernetes_pod")
         m.add_tag("pod", "canal-fqwlv")
+        m.add_tag("namespace", "kube-system")
         m.values = {
             'cpu_usage': '0.0110423',
             'memory_rssBytes': '28389376i',
@@ -120,6 +121,7 @@ class ParserTest(unittest.TestCase):
         self.expectedCollection.append(m)
         m = Metric("kubernetes_pod_network")
         m.add_tag("pod", "canal-fqwlv")
+        m.add_tag("namespace", "kube-system")
         m.add_tag("interface", "cali3e3082340d7")
         m.values = {
             'rxBytes': '227051613i',
@@ -130,6 +132,7 @@ class ParserTest(unittest.TestCase):
         self.expectedCollection.append(m)
         m = Metric("kubernetes_pod_container")
         m.add_tag("pod", "canal-fqwlv")
+        m.add_tag("namespace", "kube-system")
         m.add_tag("container", "install-cni")
         m.values = {
             'cpu_usage': '4.4756e-05',
