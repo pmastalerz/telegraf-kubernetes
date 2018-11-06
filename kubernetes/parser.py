@@ -12,6 +12,7 @@ class Parser:
         for pod in stats["pods"]:
             m = Metric("kubernetes_pod")
             m.add_tag("pod", pod["podRef"]["name"])
+            m.add_tag("namespace", pod["podRef"]["namespace"])
             m.add_tag("node", stats["node"]["nodeName"])
             m.add_value(
                 "cpu_usage", self.__nano_to_deci(pod["cpu"]["usageNanoCores"]))
@@ -25,6 +26,7 @@ class Parser:
             for interface in pod["network"]["interfaces"]:
                 m = Metric("kubernetes_pod_network")
                 m.add_tag("pod", pod["podRef"]["name"])
+                m.add_tag("namespace", pod["podRef"]["namespace"])
                 m.add_tag("node", stats["node"]["nodeName"])
 
                 for key, value in interface.items():
@@ -37,6 +39,7 @@ class Parser:
             for container in pod["containers"]:
                 m = Metric("kubernetes_pod_container")
                 m.add_tag("pod", pod["podRef"]["name"])
+                m.add_tag("namespace", pod["podRef"]["namespace"])
                 m.add_tag("container", container["name"])
                 m.add_tag("node", stats["node"]["nodeName"])
                 m.add_value(
